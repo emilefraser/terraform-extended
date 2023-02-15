@@ -1,9 +1,9 @@
 # The terraform block including backend and required providers
 terraform {
 
-  # backend "local" {
-  #   path = "terraform.tfstate"
-  # }
+   backend "local" {
+     path = "terraform.tfstate"
+   }
 
   #   backend "azurerm" {
   #     resource_group_name  = "az-rg-tng-dev-san-01"
@@ -13,14 +13,14 @@ terraform {
   #     key                  = "prod.terraform.tfstate"
   #   }
 
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "pyrodatica"
+  #backend "remote" {
+  #  hostname     = "app.terraform.io"
+  #  organization = "pyrodatica"
 
-    workspaces {
-      name = "pyrodatica-tfstate"
-    }
-  }
+  #  workspaces {
+  #    name = "pyrodatica-tfstate"
+  #  }
+  #}
 
 
   required_providers {

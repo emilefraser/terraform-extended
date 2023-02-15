@@ -15,30 +15,27 @@ variable "VAULT_APPROLE" {
   default     = ""
 }
 
-variable "role_id" {
+
+variable "VAULT_AUTHBACKEND" {
+  type        = string
+  description = "The AppRole path without the trailing slash"
+  default     = ""
+}
+
+
+variable "VAULT_APPROLEID" {
   type        = string
   description = "The AppRole role ID"
   default     = ""
 }
 
-variable "secret_id" {
+variable "VAULT_APPSECRETID" {
   type        = string
   description = "The AppRole secret ID"
   sensitive   = true
   default     = ""
 }
 
-variable "vault_azure_secret_backend_path" {
-  type        = string
-  description = "The Azure Secrets path in vault without the trailing slash"
-  default     = ""
-}
-
-variable "vault_azure_secret_backend_role_name" {
-  type        = string
-  description = "The Azure Secrets role name in Vault"
-  default     = ""
-}
 
 variable "VAULT_NAMESPACE" {
   type        = string
@@ -52,3 +49,8 @@ variable "VAULT_ADDRESS" {
   default     = ""
 }
 
+variable "vault_secret_backend_path" {
+        type = string
+        description = "Thr vault auth backend path"
+        default=""
+}

@@ -34,8 +34,8 @@
 
 
 data "vault_azure_access_credentials" "creds" {
-  backend        = var.vault_azure_secret_backend_path
-  role           = var.vault_azure_secret_backend_role_name
+  backend        = local.vault_authbackend
+  role           = local.vault_approle
   validate_creds = false
   #num_sequential_successes    = 3
   #num_seconds_between_tests   = 1

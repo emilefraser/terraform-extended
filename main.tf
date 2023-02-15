@@ -7,11 +7,11 @@ provider "vault" {
   address   = local.vault_address
   namespace = local.vault_namespace
   auth_login {
-    path      = "auth/${local.approle_path}/login"
+    path      = "auth/approle/login"
     namespace = local.vault_namespace
     parameters = {
-      role_id   = var.role_id
-      secret_id = var.secret_id
+      role_id   = local.vault_approleid
+      secret_id = local.vault_appsecretid
     }
   }
 }
