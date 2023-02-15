@@ -1,72 +1,54 @@
 # Variables used for the code
+variable "tenant_id" {
+  type        = string
+  description = "The Azure Active Directory tenant ID"
+}
 
 variable "subscription_id" {
-  type = string
-  default = "00000000-0000-0000-0000-000000000000"
-  description = "Azure subscription ID"
+  type        = string
+  description = "The Azure Subscription ID"
 }
 
-variable "client_id" {
-  type = string
-  description = "Azure subscription ID"
+variable "VAULT_APPROLE" {
+  type        = string
+  description = "The AppRole path without the trailing slash"
+  default     = ""
 }
 
-variable "client_secret" {
-  type = string
-  description = "Azure client secret"
+variable "role_id" {
+  type        = string
+  description = "The AppRole role ID"
+  default     = ""
 }
 
-variable "tenant_id" {
-  type = string
-  description = "Azure AD Tenant ID"
+variable "secret_id" {
+  type        = string
+  description = "The AppRole secret ID"
+  sensitive   = true
+  default     = ""
 }
 
-variable "global_settings" {
-  type = string
-  description = "Setting read in from a global settings block"
+variable "vault_azure_secret_backend_path" {
+  type        = string
+  description = "The Azure Secrets path in vault without the trailing slash"
+  default     = ""
 }
 
-# MAP
-variable "tags" {
-  type        = map
-  description = "All mandatory tags to use on all assets"
-  default = {
-    activityName       = "AzureVMWindowsDemo"
-    automation         = "Terraform"
-    solutionOwner      = "jackwesleyroper"
-  }
+variable "vault_azure_secret_backend_role_name" {
+  type        = string
+  description = "The Azure Secrets role name in Vault"
+  default     = ""
 }
 
-# OBJECT
-variable "os" {
-  description = "OS image to deploy"
-  type = object({
-    publisher = string
-    offer = string
-    sku = string
-  })
+variable "VAULT_NAMESPACE" {
+  type        = string
+  description = "The Vault namespace"
+  default     = ""
 }
 
-
-
-
-
-# LIST
-variable "cidrs" { default = [] }
-variable "sidrs" { type = "list" }
-
-
-
-# LIST OF OBJECTS
-variable "storage_config" {
-  type = list(object({
-    name                      = string
-    account_kind              = string
-}))
+variable "VAULT_ADDRESS" {
+  type        = string
+  description = "The Vault server address"
+  default     = ""
 }
 
-
-variable "availability_zone_names" {
-  type    = list(string)
-  default = ["us-west-1a"]
-}

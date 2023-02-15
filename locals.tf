@@ -1,13 +1,12 @@
 # LOCALS
 
 locals {
-  bucket_name = "mytest"
-  env         = "dev"
-  instance_ids = concat(aws_instance.ec1.*.id, aws_instance.ec3.*.id)
-  env_tags = {
-    envname = "dev"
-    envteam = "devteam"
-  }
+  vault_address                        = var.VAULT_ADDRESS
+  vault_namespace                      = var.VAULT_NAMESPACE
+  approle_path                         = var.VAULT_APPROLE
+  vault_azure_secret_backend_role_name = var.VAULT_APPROLE
+
+
 }
 
 # USE

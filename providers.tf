@@ -25,9 +25,9 @@ terraform {
 
   required_providers {
 
-    localprovider = {
-      source  = "hashicorp/local"
-      version = "= 2.3.0"
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>3.0"
     }
 
     github = {
@@ -35,14 +35,23 @@ terraform {
       version = "~> 4.0"
     }
 
+    localprovider = {
+      source  = "hashicorp/local"
+      version = "= 2.3.0"
+    }
+
     random = {
       source  = "hashicorp/random"
       version = ">= 3.1.0"
     }
 
+    vault = {
+      source  = "hashicorp/vault"
+      version = "~>3.0"
+    }
+
+    #required_version = ">= 1.1.5"
+
   }
-
-  required_version = ">= 1.1.5"
-
 }
 
