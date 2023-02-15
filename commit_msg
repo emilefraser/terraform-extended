@@ -1,0 +1,59 @@
+#!/bin/bash
+# 
+# Semantic versioning 
+#######################
+# MAJOR.MINOR.PATCH
+# BREAKING CHANGE: is MAJOR (start of body/footer)
+#      	           of type fix:, feat: & chore:
+# feat: is minor (type)
+# fix: is patch (type)
+#
+# Other types like chore:, docs:, style:, refactor:, perf:, test:, chore:, docs:, reactor:, style:
+# Commit Message
+########################
+# <type>[optional scope]: <description>
+#
+# [optional body]
+#
+# [optional footer(s)]
+#
+# Example 
+########################
+# fix(ABC-123): Caught Promise exception
+#
+# We did not catch the promise exception thrown ...
+# ....
+
+major="${1}"
+minor="${2}"
+patch="${3}"
+typ="${4}"
+scope="${5}"
+desc="${6}"
+body="${7}"
+footer="${8}"
+
+if [ $minor == 1 ]
+then
+ commit_str="fix"
+elif [ $minor == 1 ]
+then
+  commit_str="feat"
+else 
+  commit_str="feat"
+fi
+
+if ! [ -z $typ ] 
+then
+  commit_str="$commit_str($typ)"
+fi
+  
+commit_str="$commit_str:"
+
+echo ${commit_str}
+
+# printf <type>[optional scope]: <description>
+#
+# [optional body]
+#
+# [optional
