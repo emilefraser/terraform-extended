@@ -4,14 +4,16 @@
 # management group.
 
 provider "vault" {
-  address   = local.vault_address
-  namespace = local.vault_namespace
+  address          = local.vault_address
+  namespace        = "admin"
+  skip_child_token = true
+
   auth_login {
     path      = "auth/approle/login"
-    namespace = local.vault_namespace
+    namespace = "admin"
     parameters = {
-      role_id   = local.vault_approleid
-      secret_id = local.vault_appsecretid
+      role_id   = "59857134-be2c-d95d-65e9-33567199591e" #local.vault_roleid
+      secret_id = "e3657af4-424f-e8d6-3789-57393e2f0a91" #local.vault_secretid
     }
   }
 }

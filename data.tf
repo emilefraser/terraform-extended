@@ -33,11 +33,18 @@
 #}
 
 
-data "vault_azure_access_credentials" "creds" {
-  backend        = local.vault_authbackend
-  role           = local.vault_approle
-  validate_creds = false
+resource "vault_mount" "kvv2" {
+  path        = "kv"
+  type        = "kv"
+  options     = { version = "2" }
+  description = "KV Version 2 secret engine mount"
   #num_sequential_successes    = 3
   #num_seconds_between_tests   = 1
   #max_cred_validation_seconds = 100
+}
+
+
+data "vault_kv_secret_v2" "example" {
+  mount = vault_mount.kvv2.path
+  name  = "github-emilefraser"
 }

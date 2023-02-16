@@ -1,13 +1,13 @@
 # LOCALS
 
 locals {
-  vault_address                        = var.VAULT_ADDRESS
-  vault_namespace                      = var.VAULT_NAMESPACE
-  approle_path                         = var.VAULT_APPROLE
-  vault_azure_secret_backend_role_name = var.VAULT_APPROLE
-  vault_approleid                        = var.VAULT_APPROLEID
-  vault_appsecretid                    = var.VAULT_APPSECRETID
-  vault_authbackend                     = var.VAULT_AUTHBACKEND
+  vault_address     = var.VAULT_ADDRESS
+  vault_namespace   = var.VAULT_NAMESPACE
+  approle_path      = var.VAULT_APPROLE
+  vault_approle     = var.VAULT_APPROLE
+  vault_roleid      = var.VAULT_ROLEID
+  vault_secretid    = var.VAULT_SECRETID
+  vault_authbackend = var.VAULT_AUTHBACKEND
 
 }
 

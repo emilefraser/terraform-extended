@@ -15,7 +15,6 @@ variable "VAULT_APPROLE" {
   default     = ""
 }
 
-
 variable "VAULT_AUTHBACKEND" {
   type        = string
   description = "The AppRole path without the trailing slash"
@@ -23,13 +22,13 @@ variable "VAULT_AUTHBACKEND" {
 }
 
 
-variable "VAULT_APPROLEID" {
+variable "VAULT_ROLEID" {
   type        = string
   description = "The AppRole role ID"
   default     = ""
 }
 
-variable "VAULT_APPSECRETID" {
+variable "VAULT_SECRETID" {
   type        = string
   description = "The AppRole secret ID"
   sensitive   = true
@@ -50,7 +49,7 @@ variable "VAULT_ADDRESS" {
 }
 
 variable "vault_secret_backend_path" {
-        type = string
-        description = "Thr vault auth backend path"
-        default=""
+  type        = string
+  description = "Thr vault auth backend path"
+  default     = ""
 }
